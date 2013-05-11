@@ -54,6 +54,7 @@ SylMRubyOption SYLPF_OPTION;
 static mrbc_context *ctx;
 static struct mrb_parser_state *parser;
 static mrb_state *mrb;
+static mrb_value sylmruby;
 
 gulong app_exit_handler_id = 0;
 
@@ -235,6 +236,8 @@ static void init_mruby(void)
   int n;
   int ai;
   mrb_value result;
+  struct RClass *klass;
+  mrb_value instance;
 
   mrb = mrb_open();
   ctx = mrbc_context_new(mrb);
@@ -258,10 +261,18 @@ static void init_mruby(void)
   if (mrb->exc) {
     mrb->exc = 0;
   }
+
+  klass = mrb_class_get(mrb, "SylpheedPlugin");
+  instance = mrb_obj_value(klass);
+
+  sylmruby = mrb_funcall(mrb, instance, "new", 0);
 }
 
 static void init_done_cb(GObject *obj, gpointer data)
 {
+  mrb_value result;
+
+  result = mrb_funcall(mrb, sylmruby, "init_done", 0);
 }
 
 static void app_exit_cb(GObject *obj, gpointer data)
