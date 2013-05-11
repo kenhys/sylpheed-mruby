@@ -12,6 +12,7 @@ INCLUDES = \
 	-I$(includedir) \
 	-I$(sylpheed_build_dir)/libsylph \
 	-I$(sylpheed_build_dir)/src \
+	-I$(top_srcdir)/lib/mruby/include \
 	-I$(sylplugin_factory_source_dir)/src
 
 sylmruby_la_LIBADD = \
