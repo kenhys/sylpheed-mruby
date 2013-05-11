@@ -28,6 +28,11 @@ AM_PATH_GTK_2_0(2.8.0,, AC_MSG_ERROR(Test for Gtk failed. See the 'INSTALL' for 
 AC_SUBST(GTK_CFLAGS)
 AC_SUBST(GTK_LIBS)
 
+GETTEXT_PACKAGE=sylmruby
+AC_SUBST(GETTEXT_PACKAGE)
+AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Define text domain.])
+AM_GLIB_GNU_GETTEXT
+
 # Checks for header files.
 
 # Checks for typedefs, structures, and compiler characteristics.
