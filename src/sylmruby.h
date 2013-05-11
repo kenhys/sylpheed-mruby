@@ -29,6 +29,8 @@ static GtkWidget *create_config_main_page(GtkWidget *notebook, GKeyFile *pkey);
 static GtkWidget *create_preference_dialog(SylMRubyOption *option);
 static void save_sylmruby_preference(SylMRubyOption *option);
 
+static void init_mruby(void);
+
 /* callback prototypes */
 static void init_done_cb(GObject *obj, gpointer data);
 static void app_exit_cb(GObject *obj, gpointer data);
