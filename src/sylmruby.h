@@ -44,8 +44,6 @@ static void textview_menu_popup_cb(GObject *obj, GtkMenu *menu,
                                    const gchar *selected_text,
                                    MsgInfo *msginfo);
 
-static void menu_selected_cb(void);
-
 static void compose_created_cb(GObject *obj, gpointer compose);
 static void compose_destroy_cb(GObject *obj, gpointer compose);
 static gboolean compose_send_cb(GObject *obj, gpointer compose,
