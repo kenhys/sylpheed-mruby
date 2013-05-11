@@ -24,4 +24,9 @@ struct _SylMRubyOption {
   GKeyFile *rcfile;
 };
 
+static void exec_sylmruby_menu_cb(void);
+static GtkWidget *create_config_main_page(GtkWidget *notebook, GKeyFile *pkey);
+static GtkWidget *create_preference_dialog(SylMRubyOption *option);
+static void save_sylmruby_preference(SylMRubyOption *option);
+
 #endif /* __SYLMRUBY_H__ */
