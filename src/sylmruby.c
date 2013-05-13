@@ -277,17 +277,26 @@ static void init_done_cb(GObject *obj, gpointer data)
 
 static void app_exit_cb(GObject *obj, gpointer data)
 {
+  mrb_value result;
+
+  result = mrb_funcall(mrb, sylmruby, "app_exit", 0);
 }
 
 
 static void folderview_menu_popup_cb(GObject *obj, GtkItemFactory *ifactory,
                                      gpointer data)
 {
+  mrb_value result;
+
+  result = mrb_funcall(mrb, sylmruby, "folderview_menu_popup", 0);
 }
 
 static void summaryview_menu_popup_cb(GObject *obj, GtkItemFactory *ifactory,
                                       gpointer data)
 {
+  mrb_value result;
+
+  result = mrb_funcall(mrb, sylmruby, "summaryview_menu_popup", 0);
 }
 
 static void textview_menu_popup_cb(GObject *obj, GtkMenu *menu,
@@ -296,20 +305,32 @@ static void textview_menu_popup_cb(GObject *obj, GtkMenu *menu,
                                    const gchar *selected_text,
                                    MsgInfo *msginfo)
 {
+  mrb_value result;
+
+  result = mrb_funcall(mrb, sylmruby, "textview_menu_popup", 0);
 }
 
 static void compose_created_cb(GObject *obj, gpointer compose)
 {
+  mrb_value result;
+
+  result = mrb_funcall(mrb, sylmruby, "compose_created", 0);
 }
 
 static void compose_destroy_cb(GObject *obj, gpointer compose)
 {
+  mrb_value result;
+
+  result = mrb_funcall(mrb, sylmruby, "compose_destroy", 0);
 }
 
 static gboolean compose_send_cb(GObject *obj, gpointer compose,
                                 gint compose_mode, gint send_mode,
                                 const gchar *msg_file, GSList *to_list)
 {
+  mrb_value result;
+
+  result = mrb_funcall(mrb, sylmruby, "compose_send", 0);
   return FALSE;
 }
 
@@ -317,6 +338,7 @@ static void messageview_show_cb(GObject *obj, gpointer msgview,
                                 MsgInfo *msginfo, gboolean all_headers)
 {
   MessageView *messageview = NULL;
+  mrb_value result;
 
   SYLPF_START_FUNC;
 
@@ -326,15 +348,22 @@ static void messageview_show_cb(GObject *obj, gpointer msgview,
 
   g_return_if_fail(messageview != NULL);
 
+  result = mrb_funcall(mrb, sylmruby, "compose_send", 0);
   SYLPF_END_FUNC;
 }
 
 static void inc_start_cb(GObject *obj, PrefsAccount *ac)
 {
+  mrb_value result;
+
+  result = mrb_funcall(mrb, sylmruby, "inc_start", 0);
 }
 
 static void inc_finished_cb(GObject *obj, gint new_messages)
 {
+  mrb_value result;
+
+  result = mrb_funcall(mrb, sylmruby, "inc_finished", 0);
 }
 
 
