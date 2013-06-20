@@ -16,3 +16,4 @@ m4/lt*
 config/*
 configure
 Makefile
+libtool
